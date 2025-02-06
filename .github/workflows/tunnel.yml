@@ -11,20 +11,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
-          curl -SL https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-          chmod +x /usr/local/bin/docker-compose
-          sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Start Docker Compose
         env:
           ZEROTRUST_TOKEN: ${{ secrets.ZEROTRUST_TOKEN }}
         run: |
           echo "Starting Docker Compose..."
-          sudo docker-compose up
+          sudo docker compose up
 
       - name: Trigger new workflow run
         if: always()  # Jalankan langkah ini bahkan jika job gagal
