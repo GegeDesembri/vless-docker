@@ -1,0 +1,33 @@
+name: Continuous Docker Compose Execution
+
+on:
+  workflow_dispatch:  # Memungkinkan workflow dipicu secara manual atau melalui API
+
+jobs:
+  run-docker-compose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # Batas waktu 6 jam
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Compose
+        run: |
+          docker-compose --version
+
+      - name: Start Docker Compose
+        env:
+          ZEROTRUST_TOKEN: ${{ secrets.ZEROTRUST_TOKEN }}
+        run: |
+          echo "Starting Docker Compose..."
+          docker-compose up
+
+      - name: Trigger new workflow run
+        if: always()  # Jalankan langkah ini bahkan jika job gagal
+        run: |
+          echo "Triggering new workflow run..."
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/main.yml/dispatches \
+            -d '{"ref":"${{ github.ref }}"}'
