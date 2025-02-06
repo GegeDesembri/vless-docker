@@ -6,7 +6,7 @@ on:
 jobs:
   run-docker-compose:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # Batas waktu 6 jam
+    timeout-minutes: 350  # Batas waktu 6 jam
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
