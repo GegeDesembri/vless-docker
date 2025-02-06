@@ -11,16 +11,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Docker Compose
+      - name: Install Docker Compose
         run: |
-          docker-compose --version
+          sudo apt-get update
+          sudo apt-get install -y docker.io docker-compose
+          sudo docker --version
+          sudo docker-compose --version
 
       - name: Start Docker Compose
         env:
           ZEROTRUST_TOKEN: ${{ secrets.ZEROTRUST_TOKEN }}
         run: |
           echo "Starting Docker Compose..."
-          docker-compose up
+          sudo docker-compose up
 
       - name: Trigger new workflow run
         if: always()  # Jalankan langkah ini bahkan jika job gagal
