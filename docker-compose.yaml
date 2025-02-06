@@ -3,9 +3,9 @@ version: "3.2"
 services:
   cfd:
     image: cloudflare/cloudflared:latest
-    environment:
-      - ZEROTRUST_TOKEN=${ZEROTRUST_TOKEN}
-    command: tunnel --no-autoupdate run --token eyJhIjoiNDZkYTFhZTYwNDM1ZjFhODk2YjIwNjUwMjA0NGRlNmIiLCJ0IjoiMmQxZDFhODktNjc2Yy00MjQ4LTkwMmUtZjYxZmFjYTg2ZGUwIiwicyI6Ik5tVXdaRFF3TnpJdE5HTmlOaTAwTm1NM0xXRXpaR1F0TUdSalltVmtaV0V4TjJJeiJ9
+    env_file:
+      - .env
+    command: tunnel --no-autoupdate run --token ${ZEROTRUST_TOKEN}
   vless:
     image: gegedesembri/xray-vless:latest
 
