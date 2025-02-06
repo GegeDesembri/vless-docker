@@ -1,0 +1,8 @@
+version: "3.2"
+
+services:
+  cfd:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token ${ZEROTRUST_TOKEN}
+  vless:
+    image: gegedesembri/xray-vless:latest
