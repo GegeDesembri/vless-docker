@@ -18,9 +18,9 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Start Docker Compose
-        env:
-          ZEROTRUST_TOKEN: ${{ secrets.ZEROTRUST_TOKEN }}
         run: |
+          echo "Generate .env"
+          echo "ZEROTRUST_TOKEN=${{ secrets.ZEROTRUST_TOKEN }}"
           echo "Starting Docker Compose..."
           sudo docker compose up
 
