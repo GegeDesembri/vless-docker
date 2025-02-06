@@ -6,3 +6,6 @@ services:
     command: tunnel --no-autoupdate run --token ${ZEROTRUST_TOKEN}
   vless:
     image: gegedesembri/xray-vless:latest
+
+environment:
+  - ZEROTRUST_TOKEN=${ZEROTRUST_TOKEN}
