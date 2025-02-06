@@ -1,0 +1,12 @@
+{
+	"inbounds": [
+		{
+			"listen": "/dev/shm/vless-api.socket",
+			"protocol": "dokodemo-door",
+			"settings": {
+				"address": "127.0.0.1"
+			},
+			"tag": "api"
+		}
+	]
+}
