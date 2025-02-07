@@ -16,6 +16,21 @@
 
 `TUNNEL_TOKEN` : Put your Cloudflared Tunnel Token here to bind it. [*required*]
 
+## Get Cloudflared Tunnel Token
+
+![Cloudflared Tunnel Token](https://i.imgur.com/lKRX4jz.png)
+
+Copy syntax and take the part of the text
+```bash
+>... run --token eyJhIjoiNDZkYTFhZTYwNDM1ZjFhODk2YjIwNjUwMjA0NGRlNmIiLCJ0IjoiMmQxZDFhODktNjc2Yy00MjQ4LTkwMmUtZjYxZmFjYTg2ZGUwIiwicyI6Ik5tVXdaRFF3TnpJdE5HTmlOaTAwTm1NM0xXRXpaR1F0xxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Your tunnel token is
+```text
+eyJhIjoiNDZkYTFhZTYwNDM1ZjFhODk2YjIwNjUwMjA0NGRlNmIiLCJ0IjoiMmQxZDFhODktNjc2Yy00MjQ4LTkwMmUtZjYxZmFjYTg2ZGUwIiwicyI6Ik5tVXdaRFF3TnpJdE5HTmlOaTAwTm1NM0xXRXpaR1F0xxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+
 ## Docker Compose
 
 ```bash
