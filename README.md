@@ -1,14 +1,23 @@
-# XRAY VLESS Websocker on Docker + Cloudflared
+# XRAY VLESS Websocket on Docker + Cloudflared
 
 ## Docker Compose
 
+```bash
+# .env
+TUNNEL_TOKEN=YOUR_TUNNEL_TOKEN #required
+PRIVATE_UUID=YOUR_PRIVATE_UUID #optional (default: 730b6e0c-e463-11ef-a734-b36930036fe6)
+```
+
 ```yaml
+# docker-compose.yaml
 version: "3.2"
 
 services:
   cfd:
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token TUNNEL_TOKEN
+    env_file:
+      - .env
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
   vless:
     image: gegedesembri/xray-vless:latest
 ```
@@ -25,10 +34,10 @@ services:
     "decryption": "none",
     "clients": [
       {
-        "id": "730b6e0c-e463-11ef-a734-b36930036fe6",
-        "level": 0,
-        "alterId": 0,
-        "email": "vless.ws@xray.docker"
+	    "id": "730b6e0c-e463-11ef-a734-b36930036fe6",
+	    "level": 0,
+	    "alterId": 0,
+	    "email": "vless.ws@xray.docker"
       }
     ]
   },
