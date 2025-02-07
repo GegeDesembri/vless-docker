@@ -19,7 +19,8 @@ jobs:
       - name: Start Docker Compose
         run: |
           echo "Generate .env"
-          echo "TUNNEL_TOKEN=${{ secrets.TUNNEL_TOKEN }}" > .env
+          echo "DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}" > .env
+          echo "TUNNEL_TOKEN=${{ secrets.TUNNEL_TOKEN }}" >> .env
           echo "PRIVATE_UUID=${{ secrets.PRIVATE_UUID }}" >> .env
           source .env && [ ! -z "${PRIVATE_UUID}" ] && \
           sed -i "s/730b6e0c-e463-11ef-a734-b36930036fe6/${PRIVATE_UUID}/g" ./config/vless-ws.json && \
