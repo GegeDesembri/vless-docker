@@ -21,7 +21,6 @@
 ```bash
 # .env
 TUNNEL_TOKEN=<YOUR_TUNNEL_TOKEN> # required
-DOCKER_HUB_USERNAME=<YOUR_DOCKER_HUB_USERNAME> # optional (default: gegedesembri)
 PRIVATE_UUID=<YOUR_PRIVATE_UUID> # optional (default: 730b6e0c-e463-11ef-a734-b36930036fe6)
 ```
 
