@@ -24,8 +24,8 @@ jobs:
           echo "PRIVATE_UUID=${{ secrets.PRIVATE_UUID }}" >> .env
           source .env && [ ! -z "${PRIVATE_UUID}" ] && \
           sed -i "s/730b6e0c-e463-11ef-a734-b36930036fe6/${PRIVATE_UUID}/g" ./config/vless-ws.json && \
-          "    volumes:" >> ./docker-compose.yaml && \
-          "      - ./config/vless-ws.json:/usr/local/share/xray/config/vless-ws.json" >> ./docker-compose.yaml
+          echo "    volumes:" >> ./docker-compose.yaml && \
+          echo "      - ./config/vless-ws.json:/usr/local/share/xray/config/vless-ws.json" >> ./docker-compose.yaml
           cat ./docker-compose.yaml
           echo "Starting Docker Compose..."
           sudo docker compose up
