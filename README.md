@@ -2,7 +2,7 @@
 
 ## Required 
 
-1. Domain parking on Cloudflare
+1. Domain parked on Cloudflare
 2. Cloudflare One Account (**ZeroTrust**)
 3. Github - Personal Access Token
 4. Docker Hub Account [**optional**]
