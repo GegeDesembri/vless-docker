@@ -8,7 +8,7 @@ version: "3.2"
 services:
   cfd:
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token CFD_TOKEN
+    command: tunnel --no-autoupdate run --token TUNNEL_TOKEN
   vless:
     image: gegedesembri/xray-vless:latest
 ```
