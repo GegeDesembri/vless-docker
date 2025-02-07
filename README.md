@@ -1,11 +1,24 @@
 # XRAY VLESS Websocket on Docker + Cloudflared
 
+## Github Actions Secrets
+
+`DOCKER_HUB_USERNAME` : Use this when you want to create private docker repos
+
+`DOCKER_HUB_PASSWORD` : Use this when you want to create private docker repos
+
+`PERSONAL_ACCESS_TOKEN` : Use this when you want a private github workflow
+
+`PRIVATE_UUID` : Use this when you want a private UUID for VLESS authentication. [*optional*] | *default*: `730b6e0c-e463-11ef-a734-b36930036fe6`
+
+`TUNNEL_TOKEN` : Put your Cloudflared Tunnel Token here to bind it. [*required*]
+
 ## Docker Compose
 
 ```bash
 # .env
-TUNNEL_TOKEN=YOUR_TUNNEL_TOKEN #required
-PRIVATE_UUID=YOUR_PRIVATE_UUID #optional (default: 730b6e0c-e463-11ef-a734-b36930036fe6)
+TUNNEL_TOKEN=<YOUR_TUNNEL_TOKEN> # required
+DOCKER_HUB_USERNAME=<YOUR_DOCKER_HUB_USERNAME> # optional (default: gegedesembri)
+PRIVATE_UUID=<YOUR_PRIVATE_UUID> # optional (default: 730b6e0c-e463-11ef-a734-b36930036fe6)
 ```
 
 ```yaml
