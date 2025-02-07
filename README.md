@@ -14,18 +14,22 @@
 
 `PRIVATE_UUID` : Use this when you want a private UUID for VLESS authentication. [*optional*] | *default*: `730b6e0c-e463-11ef-a734-b36930036fe6`
 
-`TUNNEL_TOKEN` : Put your Cloudflared Tunnel Token here to bind it. [*required*]
+`TUNNEL_TOKEN` : Put your Cloudflared Tunnel Token here to bind it. [*required*] - [GUIDE](https://github.com/GegeDesembri/xray-vless-docker#get-cloudflared-tunnel-token)
 
 ## Get Cloudflared Tunnel Token
 
 ![Cloudflared Tunnel Token](https://i.imgur.com/lKRX4jz.png)
 
-Copy syntax and take the part of the text
+1. Go to [Cloudflare One](https://one.dash.cloudflare.com/)
+
+2. *Networks* > *Tunnels* > *Create Tunnel* > Select "*Cloudflared*" > *follow the instructions*
+
+3. Copy syntax and take the part of the text
 ```bash
 >... run --token eyJhIjoiNDZkYTFhZTYwNDM1ZjFhODk2YjIwNjUwMjA0NGRlNmIiLCJ0IjoiMmQxZDFhODktNjc2Yy00MjQ4LTkwMmUtZjYxZmFjYTg2ZGUwIiwicyI6Ik5tVXdaRFF3TnpJdE5HTmlOaTAwTm1NM0xXRXpaR1F0xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-Your tunnel token is
+4. Your tunnel token is
 ```text
 eyJhIjoiNDZkYTFhZTYwNDM1ZjFhODk2YjIwNjUwMjA0NGRlNmIiLCJ0IjoiMmQxZDFhODktNjc2Yy00MjQ4LTkwMmUtZjYxZmFjYTg2ZGUwIiwicyI6Ik5tVXdaRFF3TnpJdE5HTmlOaTAwTm1NM0xXRXpaR1F0xxxxxxxxxxxxxxxxxxxxxxxx
 ```
@@ -87,3 +91,11 @@ services:
 Hostname : `subdomain.domain.com`
 
 Redirect Service : `http://vless:80`
+
+## HOW TO USE
+
+1. Fork this Repository to your Github
+2. Enter some required credentials according to the instructions and requirements listed [here](https://github.com/GegeDesembri/xray-vless-docker#github-actions-secrets).
+3. Goto tab "Actions" on your repository > VLESS Tunnel > Run workflow 
+4. Your VLESS Tunnel is up and running
+5. VLESS Link example : `vless://730b6e0c-e463-11ef-a734-b36930036fe6@vless.docker.git:443?path=%2Fvless&security=tls&encryption=none&host=vless.docker.git&fp=randomized&type=ws&sni=vless.docker.git#VLESS+Docker`
