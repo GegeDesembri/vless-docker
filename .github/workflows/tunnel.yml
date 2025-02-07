@@ -20,7 +20,7 @@ jobs:
       - name: Start Docker Compose
         run: |
           echo "Generate .env"
-          echo "ZEROTRUST_TOKEN=${{ secrets.ZEROTRUST_TOKEN }}" > .env
+          echo "TUNNEL_TOKEN=${{ secrets.TUNNEL_TOKEN }}" > .env
           echo "Starting Docker Compose..."
           sudo docker compose up
 
