@@ -87,15 +87,19 @@ services:
 ```
 
 ## Cloudflared Hostname Setting
-
-Hostname : `subdomain.domain.com`
-
-Redirect Service : `http://vless:80`
+![Hostname Settings](https://i.imgur.com/JjHqzXW.png)
 
 ## HOW TO USE
 
 1. Fork this Repository to your Github
 2. Enter some required credentials according to the instructions and requirements listed [here](https://github.com/GegeDesembri/xray-vless-docker#github-actions-secrets).
-3. Goto tab "Actions" on your repository > VLESS Tunnel > Run workflow 
+3. Goto tab "*Actions*" on your repository > *VLESS Tunnel* > *Run workflow*
+![Run workflow](https://i.imgur.com/fZCoYgO.png)
 4. Your VLESS Tunnel is up and running
+![VLESS Tunnel Running](https://i.imgur.com/o58YQWU.png)
 5. VLESS Link example : `vless://730b6e0c-e463-11ef-a734-b36930036fe6@vless.docker.git:443?path=%2Fvless&security=tls&encryption=none&host=vless.docker.git&fp=randomized&type=ws&sni=vless.docker.git#VLESS+Docker`
+
+## Limitations
+1. VLESS Tunnel will restart every 6 hours due to Github Actions limitation on timeout for each job
+2. Downtime occurs every time job session switches
+3. Can only use Cloudflared as outbound traffic
