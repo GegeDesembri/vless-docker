@@ -7,7 +7,7 @@ services:
       - .env
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
   vless:
-    image: ${DOCKER_HUB_USERNAME}/xray-vless:latest
+    image: gegedesembri/xray-vless:latest
     env_file:
       - .env
 
