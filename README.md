@@ -2,6 +2,10 @@
 
 ## Github Actions Secrets
 
+![Github Repository Secrets List](https://i.imgur.com/gyOBD6X.png)
+
+**Settings Path** : *Github Repository* > *Settings* > *Secrets and Variables* > *Actions*
+
 `DOCKER_HUB_USERNAME` : Use this when you want to create private docker repos
 
 `DOCKER_HUB_PASSWORD` : Use this when you want to create private docker repos
@@ -67,4 +71,5 @@ services:
 ## Cloudflared Hostname Setting
 
 Hostname : `subdomain.domain.com`
+
 Redirect Service : `http://vless:80`
