@@ -4,9 +4,9 @@ on:
   workflow_dispatch:  # Memungkinkan workflow dipicu secara manual atau melalui API
 
 jobs:
-  run-docker-compose:
+  vless:
     runs-on: ubuntu-latest
-    timeout-minutes: 350  # Batas waktu 6 jam
+    timeout-minutes: 355  # Batas waktu 6 jam
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
