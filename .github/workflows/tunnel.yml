@@ -26,7 +26,8 @@ jobs:
           sed -i "s/730b6e0c-e463-11ef-a734-b36930036fe6/${PRIVATE_UUID}/g" ./config/vless-ws.json && \
           echo "    volumes:" >> ./docker-compose.yaml && \
           echo "      - ./config/vless-ws.json:/usr/local/share/xray/config/vless-ws.json" >> ./docker-compose.yaml
-          cat ./docker-compose.yaml
+          source .env && [ ! -z "${DOCKER_HUB_USERNAME}" ] && \
+          sed -i "s/gegedesembri/${DOCKER_HUB_USERNAME}/g" ./docker-compose.yaml
           echo "Starting Docker Compose..."
           sudo docker compose up
 
