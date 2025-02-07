@@ -1,5 +1,12 @@
 # XRAY VLESS Websocket on Docker + Cloudflared
 
+## Required 
+
+1. Domain parking on Cloudflare
+2. Cloudflare One Account (**ZeroTrust**)
+3. Github - Personal Access Token
+4. Docker Hub Account [**optional**]
+
 ## Github Actions Secrets
 
 ![Github Repository Secrets List](https://i.imgur.com/gyOBD6X.png)
