@@ -108,5 +108,5 @@ services:
 
 ## Limitations
 1. VLESS Tunnel will restart every 6 hours due to Github Actions limitation on timeout for each job
-2. Downtime occurs every time job session switches
+2. Downtime ±20 seconds occurs every time job session switches
 3. Can only use Cloudflared as outbound traffic
